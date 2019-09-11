@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kiểm tra năm nhuận</title>
+</head>
+<body>
+    <h2>KIỂM TRA NĂM NHUẬN</h2>
+    NHẬP NĂM <input type="text"id= "year">
+    <button type="button" onclick="check()">Check</button>
+    <div id="result"></div>
+
+    <script>
+    function check(){
+		let year = document.getElementById("year").value;
+		let result;
+		if( year % 4 == 0){
+			if (year % 100 !=0 ) {
+				if (year % 400 == 0) {
+					result = "NĂM NHUẬN";
+				}
+				else{
+					result = ("NĂM KHÔNG NHUẬN");
+				}
+			}
+			else {
+				result = ("NĂM NHUẬN");
+			}
+		}
+		else{
+			result =("NĂM KHÔNG NHUẬN");
+		}
+		if (result == ("NĂM NHUẬN")) {
+			document.getElementById("result").innerHTML = year + " is leap year";
+		}
+		else{
+			document.getElementById("result").innerHTML = year + " is not leap year";
+		}
+	}
+</script>
+    </script>
+</body>
+</html>

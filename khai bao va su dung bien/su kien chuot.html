@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sự kiện chuột</title>
+</head>
+
+<body >
+    <form>
+        <img id="ball" src="ball.jpg" />
+        <p>Click right below to move the image to right</p>
+
+        <input type="button" value="Left" onclick="moveLeft()" />
+        <input type="button" value="Right" onclick="moveRight()" />
+    </form>
+
+    <script>
+        let imgObj = null;
+        //imgObj = document.getElementById('ball');
+        function init() {
+            imgObj = document.getElementById('ball');
+            imgObj.style.position = 'relative';
+            imgObj.style.left = '0px';
+        } function moveRight() {
+            let imgright=parseInt(imgObj.style.left);
+            imgright +=10;
+            imgObj.style.left = imgright + 'px';
+        } function moveLeft() {
+            let imgleft=parseInt(imgObj.style.left);
+            imgleft -=10;
+            imgObj.style.left = imgleft + 'px'
+        }
+        window.onload = init()
+      
+    </script>
+</body>
+
+</html>

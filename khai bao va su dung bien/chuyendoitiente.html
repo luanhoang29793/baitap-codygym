@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h2>chuyển đổi tiền</h2>
+
+        
+          Amount         
+          <input type="text" id="A"><br>
+          from currency<br>
+          <select id= "from">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select><br>
+                To curency <br>
+            <select id= "to">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select><br>
+            <input type="submit" onclick="chuyendoi()" value="Convert"><br>  
+            <p id= "result">
+                
+            </p>  
+ 
+
+<script>
+function chuyendoi(){
+let so = document.getElementById("A").value; 
+let from = document.getElementById("from").value;
+let to = document.getElementById("to").value;
+let doi =so/23000;
+let toi =so*23000;
+/*document.write (+doi)
+document.write('<br/>');
+document.write (+so)
+document.write('<br/>');
+document.write (+toi)
+document.write('<br/>');*/
+
+if ((from == "VND") && (to == "VND")){
+    document.getElementById("result").innerHTML = "result " + so + " VND"
+}
+else if ((from=="VND") && (to=="USD")) {
+document.getElementById("result").innerHTML = "result " + doi + " USD"
+}
+else if ((from=="USD")&&(to=="USD")){
+document.getElementById("result").innerHTML = "result " + so + " USD"
+}
+else if ((from=="USD")&&(to=="VND")) {
+    document.getElementById("result").innerHTML = "result " + toi + " VND"
+}
+
+}
+</script>
+</body>
+</html>

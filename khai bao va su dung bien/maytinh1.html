@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+<h1>Caculator</h1>
+
+Nhập A : <input type="text" id="A"><br>
+Nhập B : <input type="text" id="B"><br>
+Kết quả: <p id="C"></p> <br><br>
+<input type="submit" onclick="addition()" value="Addition (+)">
+<input type="submit" onclick="subtraction()" value="Subtraction (-)">
+<input type="submit" onclick="multiplication()" value="Multiplication (*)">
+<input type="submit" onclick="divition()" value="Divition (/)">
+
+
+</body>
+</html>
+
+
+<script>
+
+function addition(){
+var b = document.getElementById("B").value;
+var a = document.getElementById("A").value;
+var c = parseInt(a) +parseInt(b);
+document.getElementById("C").innerHTML = c ;
+}
+function subtraction(){
+var b = document.getElementById("B").value;
+var a = document.getElementById("A").value;
+var c = parseInt(a) -parseInt(b);
+document.getElementById("C").innerHTML = c ;
+}
+function multiplication(){
+var b = document.getElementById("B").value;
+var a = document.getElementById("A").value;
+var c = parseInt(a)  *parseInt(b);
+document.getElementById("C").innerHTML = c ;
+}
+function divition(){
+var b = document.getElementById("B").value;
+var a = document.getElementById("A").value;
+var c = parseInt(a) / parseInt(b);
+document.getElementById("C").innerHTML = c ;
+}
+</script>
+</body>
+</html>

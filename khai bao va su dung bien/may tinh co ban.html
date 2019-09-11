@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="a" value="0"><br>
+    <input type="button" id="so1" onclick="1" value="1">
+    <input type="button" id="so2" onclick="2" value="2">
+    <input type="button" onclick="3" value="3">
+    <input type="button" onclick="cong()" value="+"><br>
+    <input type="button" onclick="4" value="4">
+    <input type="button" onclick="5" value="5">
+    <input type="button" onclick="6" value="6">
+    <input type="button" onclick="tru()" value="-"><br>
+    <input type="button" onclick="7" value="1">
+    <input type="button" onclick="8" value="2">
+    <input type="button" onclick="9" value="3">
+    <input type="button" onclick="nhan()" value="*"><br>
+    <input type="reset" onclick="reset" value="c">
+    <input type="button" onclick="0" value="0">
+    <input type="button" onclick="ketqua()" value="=">
+    <input type="button" onclick="chia()" value="/"><br>
+    <script>
+
+        function cong() {
+            let a
+            var so1 = parseInt(document.getElementById("so1").value);
+            var so2 = parseInt (document.getElementById("so2").value);
+            document.getElementById("a").innerHTML = so1;
+            document.getElementById("a").innerHTML = so2;
+            var c = parseInt(so1) + parseInt(so2);
+            document.getElementById("a").innerHTML = c;
+        }
+    
+    </script>
+</body>
+
+</html>
