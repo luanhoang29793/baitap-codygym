@@ -7,18 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+        <h2>JavaScript Loops</h2>
+        <p id="demo"></p>
     <script>
-    let userName = prompt("Who's there?", '');
-    if (userName == 'Admin') {
-        alert ("nhập mật khau")
-    } else if (userName == "TheMaster") {
-    alert('Welcome');
-    } else if (userName == null) {
-    alert('Canceled');
-    } else {
-    alert("I don't know you");
+     let text = "";
+    let i;
+    for (i = 0; i < 5; i++) {
+        text += "The number is " + i + "<br>";
     }
-    
+    document.getElementById("demo").innerHTML = text;
     </script>
 </body>
 </html>

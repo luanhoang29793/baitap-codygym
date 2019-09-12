@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hiển thị các số nguyên tố</title>
+</head>
+
+<body>
+    <script>
+        let num;
+        num = parseInt(prompt("nhập số"));
+        count = 0;
+        N = 2;
+
+        while (count < num) {
+            if ((N % count) !== 0) {
+                document.write(N + "<br>");
+            }
+            count++;
+            N++;
+        }
+    </script>
+</body>
+
+</html>
