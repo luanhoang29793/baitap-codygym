@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tic tac toe</title>
+</head>
+<body>
+    <h3> game caro 3 *3</h3>
+    <p id="caro"></p>
+    <button onclick="nhaptoado1()">người chơi 1</button>
+    <button onclick="nhaptoado2()">người chơi 2</button>
+    <script>
+        let b = document.getElementById("caro");
+        let board = [];
+        let data = " ";
+        
+        for (let i = 0; i < 3; i++) {
+            board[i] = new Array(".", ".",".");
+        }
+        for (let i = 0; i < 3; i++) {
+            data += "</br>";
+            for (let j = 0; j < 3; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+        function nhaptoado1() {
+            let positionX = prompt("X: ");
+            while (positionX) {
+            if ( (positionX <0)|| (positionX>3)){
+                positionX = prompt(" nhập lại X: ");
+            }
+            else  break;
+            }
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "x";
+            for (let i = 0; i < 3; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 3; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            data += b.innerHTML = "<hr/>" + data;
+        }
+        function nhaptoado2() {
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "o";
+            for (let i = 0; i < 3; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 3; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            data += b.innerHTML = "<hr/>" + data;
+        }
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nhap 10 so nguyen</title>
+</head>
+
+<body>
+    <script>
+        let a = [];
+        let tong = 0;
+
+
+        for (let i = 0; i < 10; i++) {
+            let tmp = Math.floor(Math.random() * 100 + 1);
+            let flag = true;
+            while (flag) {
+                for (let index = 0; index < a.length; index++) {
+                    if (tmp === a[index]) {
+                        flag = false;
+                        break;
+                    } 
+                }
+                if( flag === false)
+                {
+                    tmp = Math.floor(Math.random() * 100 + 1);
+                    flag = true;
+                } else {
+                    a[i] = tmp;
+                    break;
+                }
+                
+            }
+        
+        // for (let i = 0; i < 10; ) {
+        //     let tmp = Math.floor(Math.random() * 100 + 1);
+        //     if(a.indexOf(tmp) === -1) {
+        //         a[i] = tmp;
+        //         i++;
+        //     }
+            
+        // }
+
+            // a[i] = Math.floor(Math.random() * 100 + 1);
+            // for (j = 0; j < (i-1); j++)
+            //     if (a[j] == a[i])
+            //         a[i] == Math.floor(Math.random() * 100 + 1)
+            // var maxInNumbers = parseInt(Math.max.apply(Math, a));
+            // // Lấy giá trị lớn nhất và nhỏ nhất
+
+            // var minInNumbers = parseInt(Math.min.apply(Math, a));
+            //In giá trị ra màn hình
+            // document.write("Giá trị lớn nhất là " + maxInNumbers + "<br/>");
+            // document.write("Giá trị lớn nhất là " + minInNumbers + "<br/>");    
+        }
+        document.write(a + "<br/>");
+        // document.write("Giá trị lớn nhất là " + maxInNumbers + "<br/>");
+        // document.write("Giá trị lớn nhất là " + minInNumbers + "<br/>");   
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function input(num) {
+            do {
+            num = parseInt(prompt(" nhập n: "));
+            } while (num < 10) 
+            return num;
+            
+        }
+        function taomang(num) {
+        let a = new Array (num);
+        for (let i = 0; i < num; i++) {
+            a[i] = Math.floor(Math.random() * 100 + 1);
+          }
+         return a;
+        }
+          
+        function kiemtrasonguyento(m) {
+            for (let i = 2; i < (m-1); i++) {
+                if (m % i === 0) {
+                return false;
+                } else {   
+                return true;
+            }
+        }
+        function total(a) {
+            let total = 0 ;
+            for (let i = 0; a < a.length; i++) {
+                if (a[i])
+                    total +=1;    
+            }
+            return total;
+            function hienthimang(a) {
+                for (let i = 0; i < num; i++) {
+
+                document.write( a[i] + ",");
+                }
+            }
+             function tron() {
+            let n = input();
+            let array = taomang(n);
+                console.log (array);
+            //document.write("bbdsjsd" + kiemtrasonguyento(a));
+
+            }
+
+        tron();
+    
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Từ điển</title>
+</head>
+<body>
+    <input type="text" id = "inputword" >
+    <input type="button" id = "tratu" value="tratu" onclick="tratu()"/>
+    <div id = "mean"></div>
+    <script>
+    let array1 = ['hello','good bye','water','cold','hot'];
+    let array2 = ['xin chào','tạm biệt','nước','lạnh','nóng'];
+    function tratu() {
+    
+    let word = document.getElementById ("inputword").value;
+    console.log (word);
+    for (let i = 0; i < array1.length; i++) {
+        if (array1[i] == word) {
+        document.getElementById ("mean").innerHTML = array2[i];
+        break;
+        } else {
+        document.getElementById("mean"). innerHTML = ("can't found");
+        }
+
+        }
+        
+    }
+    </script>
+</body>
+</html>
