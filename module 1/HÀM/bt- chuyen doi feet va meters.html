@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=  , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>chuyenn doi feet và meters</title>
+    </head>
+    <body>
+            <b>Nhập giá trị cần chuyển đổi: </b>	<input type="text" id="giatri" > <br>
+	        <button type="button" onclick="convertmeter()">feet to meter</button>
+	        <button type="button" onclick="convertfeet()">meter to Foot</button>
+        <script>
+        function convertmeter() {
+            let feet = document.getElementById("giatri").value  
+             return document.write (0.305 *feet);
+
+        }
+        function convertfeet() {
+            let meter = document.getElementById("giatri").value
+            return document.write (3.279 * meter);
+            
+        }
+        </script>
+    </body>
+    </html>
+</body>
+</html>

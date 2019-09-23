@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [];
+        let b = []
+        let count =0;
+    
+        for (let i= 0; i < 5; i++){
+            a[i]= prompt ("nhập giá trị cho mảng A: ");
+        }
+        a.join()
+        for (let i= 0; i < 5; i++){
+            b[i]= prompt ("nhập giá trị cho mảng B: ");
+        }
+        b.join()
+        document.write (a + "</br>");
+        document.write (b + "</br>");
+    // if ( a.length > b.length)
+    //     for (let i =0 ; i< a.length; i++) {
+    //         if (a[i]=b[i] ) {
+    //             count++;
+    //         }
+    //     if (count = a.lenght);
+    for(var i = 0,lenght1= a.length;i < lenght1; i++){
+    if (a.localeCompare(b) ==0 )
+            document.write ( " Hai mảng giống nhau ")
+        else 
+        document.write ( " Hai mảng khác nhau")
+    }
+        
+        </script>
+    </body>
+</body>
+</html>
