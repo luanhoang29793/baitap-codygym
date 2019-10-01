@@ -18,11 +18,13 @@
     <body>
             <b>Nhập giá trị cần chuyển đổi: </b>	<input type="text" id="giatri" > <br>
 	        <button type="button" onclick="convertmeter()">feet to meter</button>
-	        <button type="button" onclick="convertfeet()">meter to Foot</button>
+            <button type="button" onclick="convertfeet()">meter to Foot</button>
+            <p id="outputCelsius"> </p>
         <script>
         function convertmeter() {
-            let feet = document.getElementById("giatri").value  
-             return document.write (0.305 *feet);
+            let feet = document.getElementById("giatri").value
+            let a= feet * 3.279;
+            document.getElementById("outputCelsius").innerHTML = "kết qur là : " +a;
 
         }
         function convertfeet() {

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bai2</title>
+</head>
+<body>
+    <p id = 'chuvi'></p>
+    <p id = 'dientich'></p>
+
+<script>
+    function chuvi(m) {
+        return m *2 *Math.PI   ; 
+    }
+    function dientich(n) {
+        return Math.pow (n,2) *Math.PI;   
+    }
+    let input = parseInt(prompt('nhập bán kính: '));
+    document.getElementById('chuvi').innerHTML= 'chu vi của hình tròn có bán kính'+ input + 'là: '+ chuvi(input);
+    document.getElementById('dientich').innerHTML= 'dien tich  của hình tròn có bán kính'+ input + 'là: '+ dientich(input);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bai 5</title>
+</head>
+
+<body>
+    <p id='result'></p>
+    
+
+    <script>
+        let stars = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+        let Constellation = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+        function show(star) {
+			for (var i = 0; i < stars.length; i++) {
+				if (star == stars[i] ) {
+					return Constellation[i];
+				}
+			}
+			return "Can't found";
+			
+		}
+
+		let star = prompt("Nhập tên ngôi sao: ");
+		document.getElementById('result').innerHTML =  'ngôi sao' + star + ' nằm trong chòm sao' + show(star);
+
+    
+
+    </script>
+
+</body>
+
+</html>

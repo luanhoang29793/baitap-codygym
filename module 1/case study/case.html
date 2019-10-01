@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+
+</head>
+<body>
+	<div><canvas id="canvas" style="background: #fff;"></canvas></div>
+
+	<script type="text/javascript">
+		/*
+		 m là số dòng
+		 n là số cột
+		 p là kích thước ô tính bằng px
+		 */
+		function Graph_Table(m, n, p) {
+			
+			this.player_id = '';
+			this.player_name = '';
+
+			this.score = 0;
+
+			this.m = (m === null) ? 4 : m;
+			this.n = (n === null) ? 4 : n;
+			this.p = (p === null) ? 20 : p;
+
+			this.bw = 0;
+			this.bh = 0;
+			this.ih = 50;
+
+			this.html_canvas = '';
+			this.canvas = null;
+			this.context = null;
+
+			this.vertexs = []; // balls
+
+			this.clicked = null; // cell clicked
+
+			this.shake = true;
+
+			this._makeid = function() {
+				var timestamp = new Date().getUTCMilliseconds();
+				return timestamp;
+			}
+
+			//this.ball = {x:-1,y:-1, r:0,color=''};
+
+			this._drawTable = function() {
+				var GT = this;
+
+				GT.context.beginPath();
+
+				for (var x = 0; x <= GT.bw; x += GT.p) {		
+					GT.context.moveTo(0.5+x, GT.ih);
+					GT.context.lineTo(0.5+x, GT.bh+GT.ih);
+				}
+
+				for (var x = 0; x <= GT.bh; x += GT.p) {
+					GT.context.moveTo(0, 0.5+x+GT.ih);
+					GT.context.lineTo(GT.bw, 0.5+x+GT.ih);
+				}
+
+				GT.context.strokeStyle = "black";
+				GT.context.stroke();
+				GT.context.closePath();
+				
+			};
+
+			this._getMousePos = function(event) {
+				var GT = this;
+				var rect = GT.canvas.getBoundingClientRect();
+				return {
+					x: event.clientX - rect.left,
+					y: event.clientY - rect.top
+				};
+			}
+
+			//Function to check whether a point is inside a rectangle
+			this._isInside = function(pos, rect){
+				return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y
+			}
+
+			//this._getCellClick = function (t,l) {
+			this._getCellClick = function (e) {
+				var GT = this;
+				var pos = GT._getMousePos(e);	
+				for(key in GT.vertexs) {
+					if(pos.y>GT.vertexs[key].cell[0][0]&&pos.y<GT.vertexs[key].cell[1][0]&&pos.x>GT.vertexs[key].cell[0][1]&&pos.x<GT.vertexs[key].cell[1][1]) {
+						return GT.vertexs[key];
+					}
+				}
+				return null;
+			};
+
+			// x chieu ngang
+			// y chieu doc
+			this._getCell = function(x,y) {
+				var GT = this;
+				for(key in GT.vertexs) {
+					if(x==GT.vertexs[key].cell[0][0]&&y==GT.vertexs[key].cell[0][1]) {
+						return GT.vertexs[key];
+					}
+				}
+				return null;
+			}
+
+			this._getCellById = function(id) {
+				var GT = this;
+				for(key in GT.vertexs) {
+					if(GT.vertexs[key].id==id) {
+						return GT.vertexs[key];
+					}
+				}
+				return null;
+			}
+
+			function randNumbers(n,max) {
+				var arr = [];
+				while(arr.length < n){
+					var randomnumber = Math.floor(Math.random()*max);
+					if(arr.indexOf(randomnumber) > -1) continue;
+						arr[arr.length] = randomnumber;
+				}
+				return arr;
+			}
+
+			function randColor() {
+				var colors = ['#ff0000','#ffa500','#ffff00','#00ff00','#0000ff','#00ffff','#a020f0'];
+				var randomnumber = Math.floor(Math.random()*(colors.length-1));
+				//console.log(colors[randomnumber]);
+				return colors[randomnumber];
+			}
+
+			this._drawBall = function(cell) {
+				if(cell!=null) {
+					if(cell.status>0) {
+						var s = GT.p/2;
+						var r = GT.p/2-5;
+						if(cell.status==1) {
+							r = r/2;
+						}
+
+						var x = cell.cell[0][1]+s;
+						var y = cell.cell[0][0]+s;
+
+						GT.context.clearRect(cell.cell[0][1]+1,cell.cell[0][0]+1, GT.p-1,GT.p-1);
+
+						//console.log(GT.clicked);
+
+						if(GT.clicked!=null) {
+							if(cell.id===GT.clicked.id) {
+								if(GT.shake) {
+									y += 3;
+								} else {
+									y -= 3; 
+								}
+								GT.shake = !GT.shake;
+							}
+						}
+
+						GT.context.beginPath();
+						GT.context.arc(x, y, r, 0, Math.PI*2);
+						GT.context.fillStyle = cell.color;
+						GT.context.fill();
+						GT.context.stroke();
+						GT.context.closePath();
+					} else {
+						GT.context.clearRect(cell.cell[0][1]+1,cell.cell[0][0]+1, GT.p-1,GT.p-1);
+					}
+				}
+			}
+
+			this.endGame = false; // end game status
+			this.cells0 = [];
+			this.cells1 = [];
+
+			this._refreshCells0Cells1 = function() {
+				var GT = this;
+				GT.cells0 = [];
+				GT.cells1 = [];
+				for(key in GT.vertexs) {
+					if(GT.vertexs[key].status===0) {
+						GT.cells0.push(GT.vertexs[key]);
+					} else if(GT.vertexs[key].status===1) {
+						GT.cells1.push(GT.vertexs[key]);
+					}
+				}
+			}
+
+			this._checkScore = function(cell_center, is_move=true) {
+				//console.log(move);
+				var GT = this;
+
+				if(cell_center!=null) {
+					var adjacent_T = []; // adjacent top
+					var adjacent_B = []; // adjacent bottom
+					var adjacent_L = []; // adjacent left
+					var adjacent_R = []; // adjacent right
+					var adjacent_CLT = []; // adjacent coss left top
+					var adjacent_CLB = []; // adjacent coss left bottom
+					var adjacent_CRT = []; // adjacent coss right top
+					var adjacent_CRB = []; // adjacent coss right bottom
+
+					function check_Adjacent_T(cell) {
+						if(cell.cell[0][0]>0) {
+							adj_cell = GT._getCell(cell.cell[0][0]-GT.p, cell.cell[0][1]);
+							if(adj_cell!=null) {
+								if(adj_cell.status>0&&adj_cell.color===cell.color) {
+									adjacent_T.push(adj_cell);
+									check_Adjacent_T(adj_cell);
+								}
+							}
+						}	
+					}
+					check_Adjacent_T(cell_center);
+
+					function check_Adjacent_B(cell) {
+						if(cell.cell[0][0]<GT.bh) {
+							var adj_cell = GT._getCell(cell.cell[0][0]+GT.p, cell.cell[0][1]);
+							if(adj_cell!=null) {
+								if(adj_cell.status>0&&adj_cell.color===cell.color) {
+									adjacent_B.push(adj_cell);
+									check_Adjacent_B(adj_cell);
+								}
+							}
+						}	
+					}
+					check_Adjacent_B(cell_center);
+
+					function check_Adjacent_L(cell) {
+						if(cell.cell[0][1]>0) {
+							var adj_cell = GT._getCell(cell.cell[0][0], cell.cell[0][1]-GT.p);
+							if(adj_cell!=null) {
+								if(adj_cell.status>0&&adj_cell.color===cell.color) {
+									adjacent_L.push(adj_cell);
+									check_Adjacent_L(adj_cell);
+								}
+							}
+						}
+					}
+					check_Adjacent_L(cell_center);
+
+					function check_Adjacent_R(cell) {
+						if(cell.cell[0][1]<GT.bw) {
+							var adj_cell = GT._getCell(cell.cell[0][0], cell.cell[0][1]+GT.p);
+							if(adj_cell!=null) {
+								if(adj_cell.status>0&&adj_cell.color===cell.color) {
+									adjacent_R.push(adj_cell);
+									check_Adjacent_R(adj_cell);
+								}
+							}
+						}
+					}
+					check_Adjacent_R(cell_center);
+
+					function check_Adjacent_CLT(cell) {
+						if(cell.cell[0][0]>0&&cell.cell[0][1]>0) {
+							var adj_cell = GT._getCell(cell.cell[0][0]-GT.p, cell.cell[0][1]-GT.p);
+							if(adj_cell!=null) {
+								if(adj_cell.status>0&&adj_cell.color===cell.color) {
+									adjacent_CLT.push(adj_cell);
+									check_Adjacent_CLT(adj_cell);
+								}
+							}
+						}
+					}
+					check_Adjacent_CLT(cell_center);
+
+					function check_Adjacent_CLB(cell) {
+						if(cell.cell[0][0]<GT.bw&&cell.cell[0][1]<GT.bh) {
+							var adj_cell = GT._getCell(cell.cell[0][0]+GT.p, cell.cell[0][1]+GT.p);
+							if(adj_cell!=null) {
+								if(adj_cell.status>0&&adj_cell.color===cell.color) {
+									adjacent_CLB.push(adj_cell);
+									check_Adjacent_CLB(adj_cell);
+								}
+							}
+						}
+					}
+					check_Adjacent_CLB(cell_center);
+
+					function check_Adjacent_CRT(cell) {
+						if(cell.cell[0][0]>0&&cell.cell[0][1]<GT.bh) {
+							var adj_cell = GT._getCell(cell.cell[0][0]-GT.p, cell.cell[0][1]+GT.p);
+							if(adj_cell!=null) {
+								if(adj_cell.status>0&&adj_cell.color===cell.color) {
+									adjacent_CRT.push(adj_cell);
+									check_Adjacent_CRT(adj_cell);
+								}
+							}
+						}
+					}
+					check_Adjacent_CRT(cell_center);
+
+					function check_Adjacent_CRB(cell) {
+						if(cell.cell[0][0]<GT.bw&&cell.cell[0][1]>0) {
+							var adj_cell = GT._getCell(cell.cell[0][0]+GT.p, cell.cell[0][1]-GT.p);
+							if(adj_cell!=null) {
+								if(adj_cell.status===2&&adj_cell.color===cell.color) {
+									adjacent_CRB.push(adj_cell);
+									check_Adjacent_CRB(adj_cell);
+								}
+							}
+						}
+					}
+					check_Adjacent_CRB(cell_center);
+
+					var adjacent_V = adjacent_T.concat(adjacent_B); // adjacent vertical
+					var adjacent_H = adjacent_L.concat(adjacent_R); // adjacent horizontal
+					var adjacent_CL = adjacent_CLT.concat(adjacent_CLB); // adjacent coss left
+					var adjacent_CR = adjacent_CRT.concat(adjacent_CRB); // adjacent coss right
+
+					// calc score
+					var score = [];
+					if(adjacent_V.length>GT.minLine-2) {
+						score = score.concat(adjacent_V);
+					}
+
+					if(adjacent_H.length>GT.minLine-2) {
+						score = score.concat(adjacent_H);	
+					}
+
+					if(adjacent_CL.length>GT.minLine-2) {
+						score = score.concat(adjacent_CL);
+					}
+
+					if(adjacent_CR.length>GT.minLine-2) {
+						score = score.concat(adjacent_CR);
+					}
+					
+					// console.log(adjacent_V);
+					// console.log(adjacent_H);
+					// console.log(adjacent_CL);
+					// console.log(adjacent_CR);
+
+					if(score.length>0) { // not have cell_center
+						GT.score += score.length+1; // sum score (1: add move cell)
+						GT._drawTopInfo();
+					}
+
+					// adjacent_V.push(cell_center);
+					// adjacent_H.push(cell_center);
+					// adjacent_CL.push(cell_center);
+					// adjacent_CR.push(cell_center);
+
+					if(   adjacent_V.length>GT.minLine-2
+					   || adjacent_H.length>GT.minLine-2
+					   || adjacent_CL.length>GT.minLine-2
+					   || adjacent_CR.length>GT.minLine-2 ) {
+
+						function delBalls(balls) {
+							for(key in balls) {
+								GT.vertexs[balls[key].id].status = 0;
+								//GT.vertexs[balls[key].id].color = '';
+							}
+						}
+						delBalls([cell_center]);
+
+						// del ball
+						if(adjacent_V.length>GT.minLine-2) {
+							delBalls(adjacent_V);
+						}
+
+						if(adjacent_H.length>GT.minLine-2) {
+							delBalls(adjacent_H);
+						}
+
+						if(adjacent_CL.length>GT.minLine-2) {
+							delBalls(adjacent_CL);
+						}
+
+						if(adjacent_CR.length>GT.minLine-2) {
+							delBalls(adjacent_CR);
+						}
+
+					}
+
+					if(is_move) {
+						GT._refreshCells0Cells1();
+						// next balls or end game
+
+						if(score.length<=0) {
+								
+							// convert small balls to big balls
+							for(key in GT.cells1) {
+								GT.vertexs[GT.cells1[key].id].status = 2;
+							}
+
+							// next rand small balls
+							var pos;
+							if(GT.cells0.length>=GT.nextBall) {
+								pos = randNumbers(GT.nextBall,GT.cells0.length);
+								for(key in GT.cells0) {
+									if(pos.indexOf(parseInt(key))>-1) {
+										GT.vertexs[GT.cells0[key].id].status = 1;
+										GT.vertexs[GT.cells0[key].id].color = randColor();
+									}
+								}
+							}
+
+						}
+					}
+				}
+			}
+
+			//this.checkAdjacent11 = function(cell)
+
+			this._BFS = function(from, to) {
+				var GT = this;
+				
+				//var parents = [];
+				var result = {};
+
+				if(GT._inVertext(from) && GT._inVertext(to)) {
+					var open = [];
+					var close = [];
+					var current = {id:from.id,root:{}};
+
+					open.push(current);
+
+					for(key in GT.vertexs) {
+						close[GT.vertexs[key].id]=false;
+					}
+
+					while(open.length>0) {
+						do {
+							if(open.length<=0) {
+								break;
+							}
+							current = open.shift();
+						} while(close[current.id]);
+
+						var path = {id:null,parent:current};
+						
+						if(current.id===to.id) {
+							result = path;
+							//console.log('current:'+current);
+							break;
+						}
+
+						close[current.id] = true;
+
+						var cell = GT._getCellById(current.id);
+
+						//console.log(cell);
+
+						
+						//phai
+						if(cell.cell[0][1]<GT.bw) {
+							var rel_cell = GT._getCell(cell.cell[0][0], cell.cell[0][1]+GT.p);
+							if(rel_cell!=null) {
+								var path_right = {id:rel_cell.id,parent:current};
+			
+								if(path_right.id===to.id) {
+									result = path_right;
+									
+									//console.log('path_right:'+path_right);
+									break;
+								} else if(rel_cell.status!==2 && !close[path_right.id]) {
+									//console.log('phai'+rel_cell.id);
+									open.push(path_right);
+								}
+							}
+						}
+
+						//trai
+						if(cell.cell[0][1]>0) {
+							var rel_cell = GT._getCell(cell.cell[0][0], cell.cell[0][1]-GT.p);
+							if(rel_cell!=null) {
+								var path_left = {id:rel_cell.id,parent:current};
+								
+								if(path_left.id===to.id) {
+									result = path_left;
+									
+									//console.log('path_left:'+path_left);
+									break;
+								} else if(rel_cell.status!==2 && !close[path_left.id]) {
+									//console.log('trai'+rel_cell.id);
+									open.push(path_left);
+								}
+							}
+						}
+
+						// duoi
+						if(cell.cell[0][0]<GT.bh) {
+							var rel_cell = GT._getCell(cell.cell[0][0]+GT.p, cell.cell[0][1]);
+							if(rel_cell!=null) {
+								var path_bot = {id:rel_cell.id,parent:current};
+								
+								if(path_bot.id===to.id) {
+									result = path_bot;
+									
+									//console.log('path_bot:'+path_bot);
+									break;
+								} else if(rel_cell.status!==2 && !close[path_bot.id]) {
+									//console.log('duoi'+rel_cell.id);
+									open.push(path_bot);
+								}
+							}
+						}
+
+						// tren
+						if(cell.cell[0][0]>0) {
+							var rel_cell = GT._getCell(cell.cell[0][0]-GT.p, cell.cell[0][1]);
+							if(rel_cell!=null) {
+								var path_top = {id:rel_cell.id,parent:current};
+								
+								if(path_top.id===to.id) {
+									result = path_top;
+									
+									//console.log('path_top:'+path_top);
+									break;
+								} else if(rel_cell.status!==2 && !close[path_top.id]) {
+									//console.log('tren'+rel_cell.id);
+									open.push(path_top);
+								}
+							}
+						}
+						
+						//break;
+						//console.log(GT.vertexs);
+					}
+					
+					
+				}
+
+				return result;
+			}
+
+			this._inVertext = function(cell) {
+				var GT = this;
+				var check = false;
+				if(GT.vertexs!=null && cell!=null) {
+					for(key in GT.vertexs) {
+						if(GT.vertexs[key].id===cell.id) {
+							check = true;
+							break;
+						}
+					}
+				}
+				return check;
+			}
+
+			this.drawBalls = function() {
+				var GT = this;
+				if(GT.vertexs!=null) {
+					for(key in GT.vertexs) {
+						GT._drawBall(GT.vertexs[key]);
+					}
+				}
+			}
+
+			this._drawTopInfo = function() {
+				var GT = this;
+				GT.context.clearRect(0,0,GT.bw,GT.ih);
+
+				var font_size = 16;
+				GT.context.font = font_size+"px Arial";
+				
+				GT.context.textAlign = "left";				
+				GT.context.fillStyle = "blue";
+				GT.context.fillText('Player: '+GT.player_name, 1, GT.ih/2+font_size/2);
+
+				GT.context.textAlign = "right";
+				GT.context.fillStyle = "red";
+				GT.context.fillText('Score: '+GT.score,GT.bw, GT.ih/2+font_size/2);
+			}
+
+			this._drawCopyright = function() {
+				var GT = this;
+
+				var font_size = 12;
+				GT.context.font = font_size+"px Arial";
+				GT.context.fillStyle = "#666666";
+				GT.context.textAlign = "right";
+				GT.context.fillText('Copyright©2018 by qqngoc2988@gmail.com',GT.bw, GT.canvas.height-GT.ih/2+font_size/2);
+			}
+
+			this.newGameButton;
+
+			this._drawNewGameButton = function() {
+				var GT = this;
+
+				GT.newGameButton = {
+					//x: GT.canvas.width/2-40,
+					x: 0,
+					y: GT.canvas.height-GT.ih+10,
+					width: 80,
+					height: 30
+				};
+
+				//console.log(GT.canvas.height-GT.ih);
+				GT.context.beginPath();
+				GT.context.rect(GT.newGameButton.x, GT.newGameButton.y, GT.newGameButton.width,GT.newGameButton.height);
+				GT.context.fillStyle = '#ff0000';
+				GT.context.fill();
+				GT.context.closePath();
+				var font_size = 12;
+				GT.context.font = font_size+"px Arial";
+				GT.context.fillStyle = "#ffffff";
+				GT.context.textAlign = "center";
+				GT.context.fillText('NEW GAME',GT.newGameButton.x+40, GT.newGameButton.y+GT.newGameButton.height-(GT.newGameButton.height-font_size)/2);
+			}
+
+			this._drawBottomInfo = function() {
+				var GT = this;
+				var bi = {
+					x: 0,
+					y: GT.canvas.height-GT.ih,
+					width: GT.canvas.width,
+					height: GT.ih
+				} // bottom info row
+
+				GT.context.clearRect(bi.x, bi.y, bi.width,bi.height);
+
+				GT._drawNewGameButton();
+				GT._drawCopyright();
+				
+			}
+
+			this.drawGameOver = function() {
+				var GT = this;
+
+				if(GT.endGame) {
+					GT.gameOver = {
+						x: GT.canvas.width/2-50,
+						y: (GT.canvas.height+GT.ih)/2-25,
+						width: 100,
+						height: 50
+					};
+
+					//console.log(GT.canvas.height-GT.ih);
+					GT.context.beginPath();
+					GT.context.rect(GT.gameOver.x, GT.gameOver.y, GT.gameOver.width,GT.gameOver.height);
+					GT.context.fillStyle = '#ffffff';
+					GT.context.fill();
+					GT.context.closePath();
+					var font_size = 12;
+					GT.context.font = font_size+"px Arial";
+					GT.context.fillStyle = "#000000";
+					GT.context.textAlign = "center";
+					GT.context.fillText('GAME OVER',GT.gameOver.x+50, GT.gameOver.y+GT.gameOver.height-(GT.gameOver.height-font_size)/2);
+				}
+			}
+
+			this.prevClick = null; // prev cell click
+			this.moved = null; // cell just moved
+
+			this.listener = function() {
+				var GT = this;
+				GT.canvas.addEventListener('click', function(e){
+					var pos = GT._getMousePos(e);
+					if(GT._isInside(pos,GT.newGameButton)) { // new game
+						// console.log('new game');
+						GT._newGame();
+					} else if(!GT.endGame) {
+						var cell = GT._getCellClick(e);
+						//console.log(cell);
+						if(cell!=null) { // click cell
+							if(GT.clicked===null) {
+								if(cell.status===2) { // click big ball cell first
+									GT.clicked = cell;
+								}
+							} else {
+								if(cell.status===2) { // click big ball cell second
+									GT.clicked = cell;
+								} else { // click other cell
+									var clicked_color = GT.clicked.color;
+									var clicked_id = GT.clicked.id;
+									
+									GT.prevClick = GT.clicked;
+									GT.moved = cell;
+
+									// search path from click big ball cell to click other cell
+									var result = GT._BFS(GT.clicked, cell);
+									
+									function isEmpty(obj) {
+										for(var prop in obj) {
+											if(obj.hasOwnProperty(prop))
+												return false;
+										}
+
+										return JSON.stringify(obj) === JSON.stringify({});
+									}
+									
+									// no path
+									// console.log(result);
+									if(isEmpty(result)) {
+										return;
+									}
+
+									// had path
+									var path = [];
+									var parent = result.parent;
+
+									while(typeof parent != 'undefined' && JSON.stringify(parent.parent)!==JSON.stringify({})) {
+										path.push(parent.id);
+										parent = parent.parent;
+									}
+									
+									var i=path.length-1;
+
+									GT.clicked=null;
+
+									GT.vertexs[clicked_id].status=0;
+									//GT.vertexs[clicked_id].color='';
+
+									// move click big ball cell to other cell
+									for(i;i>=0;i--) {
+										// mark path
+										var path_status = GT.vertexs[path[i]].status;
+										var path_color = GT.vertexs[path[i]].color;
+
+										GT.vertexs[path[i]].status = 2;
+										GT.vertexs[path[i]].color = clicked_color;
+
+										setTimeout(function(i,gt,id,color,to,path_status,path_color){
+											// restore mark path
+											gt.vertexs[id].status = path_status;
+											gt.vertexs[id].color = path_color;
+
+											if(i==0) {
+
+												GT.vertexs[to].status=2;
+												GT.vertexs[to].color=color;
+												// move completed
+												GT._checkScore(GT.vertexs[to], true);
+
+												for(key in GT.vertexs) {
+													// nổi bóng nhỏ thành bóng to thì kiểm tra điều kiện nổ bóng tính điểm
+													if(GT.cells1.indexOf(GT.vertexs[key])>-1) {
+														//console.log(GT.vertexs[key]);
+														GT._checkScore(GT.vertexs[key], false);
+													}
+												}
+
+												GT._refreshCells0Cells1();
+
+												if(GT.cells0.length<GT.nextBall) {
+													GT.endGame = true;
+												}
+
+											}
+
+										},150, i, GT, path[i], clicked_color, cell.id, path_status, path_color);
+										
+									}
+									// end move
+			
+								}
+							}
+						}
+						//console.log(cell);
+					}
+				});
+			}
+
+			this._initBalls = function() {
+				var GT = this;
+				GT.vertexs = [];
+					
+				// init ball
+				var pos = randNumbers(GT.nextBall*2,GT.m*GT.n);
+
+				var i=0;
+				var j=1;
+				for (var x = 0; x < GT.bw; x += GT.p) {		
+					for (var y = 0; y < GT.bh; y += GT.p) {
+						var toX = x+GT.p+GT.ih;
+						var toY = y+GT.p;
+						var status = 0;
+						var color = '';
+						if(pos.indexOf(i)>-1){
+							if(j<=GT.nextBall) {
+								status = 2;
+							} else {
+								status = 1
+							}
+							color = randColor();
+							j++;
+						}
+						GT.vertexs.push({cell:[[x+GT.ih,y],[toX,toY]],status:status,id:i,color:color});
+						i++;
+					}
+				}
+				//console.log(GT.vertexs);
+			}
+
+			this._newGame = function() {
+				var GT = this;
+
+				// player
+				var player = prompt("Enter your name : ", "");
+				if(player!=null) {
+
+					GT.player_id = GT._makeid();
+					GT.player_name = player;
+
+					// reset game
+					GT.score = 0;
+					GT.clicked = null;
+
+					GT.prevClick = null;
+					GT.moved = null;
+					GT.shake = null;
+					GT.endGame = false;
+
+					GT.cells0 = [];
+					GT.cells1 = [];
+
+					GT._initBalls();
+
+					GT._drawTopInfo();
+					//playing
+				}
+
+			}
+
+			this.minLine=2;  // số bóng tạo thành dãy bóng ăn điểm
+			this.nextBall=3; // số bóng tiếp theo được thêm vào
+
+			this.init = function(canvas_html_id) {
+				var GT = this;
+				
+				// begin frame game
+				var canvas = document.getElementById(canvas_html_id);
+				GT.html_canvas = canvas_html_id;
+				GT.canvas = canvas;
+				GT.context = canvas.getContext("2d");
+
+				GT.bw = GT.m*GT.p;
+				GT.bh = GT.n*GT.p;
+
+				GT.minLine = Math.floor((Math.min(GT.m,GT.n)+1)/2);
+
+				GT.nextBall = Math.floor((GT.minLine+1)/2);
+
+				GT.canvas.width = GT.bw+1;
+				GT.canvas.height = GT.bh+1+GT.ih*2;
+
+				var margin = (GT.p/2)+'px';
+
+				GT.canvas.style.marginTop = margin;
+				GT.canvas.style.marginRight = margin;
+				GT.canvas.style.marginBottom = margin;
+				GT.canvas.style.marginLeft = margin;
+				var wrap = GT.canvas.parentNode;
+				wrap.style.width = (GT.bw+GT.p)+'px';
+				wrap.style.marginLeft = 'auto';
+				wrap.style.marginRight = 'auto';
+
+				GT._drawTable();
+				GT._drawBottomInfo();
+				// end frame game
+				
+				GT._drawTopInfo();
+
+				GT.endGame=false;
+
+				GT.interval = setInterval(function(){
+					//console.log(GT.interval);
+					GT.drawBalls();
+					GT.drawGameOver();
+				}, 150, GT);
+
+				GT.listener();
+				// playing
+			
+
+			}//init
+
+		}
+
+		var GT = new Graph_Table(9,9,40);
+		GT.init('canvas');
+
+	</script>
+</body>
+</html>
