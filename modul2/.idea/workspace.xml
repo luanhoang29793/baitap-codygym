@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68246955-8d41-490d-bbd9-a77129bcea45" name="Default Changelist" comment="" />
+    <list default="true" id="68246955-8d41-490d-bbd9-a77129bcea45" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/array_method_java/count_appear_char_of_array.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/array_method_java/function.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/array_method_java/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/modul2/META-INF/modul2.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/modul2/array_method_java/add_two_array.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/modul2/array_method_java/add_two_array.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/modul2/array_method_java/insert_elment_of_array.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/modul2/array_method_java/insert_elment_of_array.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/array_method_java/add_two_array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/array_method_java/add_two_array.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,14 +28,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1S2xDqZ1Uw4bjvfUUbfAbyINm0J" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
@@ -40,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.insert_element_to_give_array">
+  <component name="RunManager" selected="Application.count_appear_char_of_aray">
     <configuration name="add_two_array" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="array_method_java.add_two_array" />
       <module name="modul2" />
@@ -64,6 +81,13 @@
     </configuration>
     <configuration name="convert_temperature" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="array_method_java.convert_temperature" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="count_appear_char_of_aray" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.count_appear_char_of_array" />
       <module name="modul2" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,8 +163,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="insert_element_to_give_array" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="array_method_java.insert_elment_of_array" />
+    <configuration name="function" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.function" />
       <module name="modul2" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,13 +211,14 @@
       <item itemvalue="Application.find_the_value_of_array" />
       <item itemvalue="Application.find_max_two_array" />
       <item itemvalue="Application.add_two_array" />
+      <item itemvalue="Application.count_appear_char_of_aray" />
       <item itemvalue="Application.delete_element_array" />
       <item itemvalue="Application.apply_count_studens_pass" />
       <item itemvalue="Application.max_value_array" />
       <item itemvalue="Application.reverse_element_of_array" />
       <item itemvalue="Application.find_min_of_array_method" />
-      <item itemvalue="Application.insert_element_to_give_array" />
       <item itemvalue="Application.display_" />
+      <item itemvalue="Application.function" />
       <item itemvalue="Application.display_shape" />
       <item itemvalue="Application.display_convert_money" />
       <item itemvalue="Application.design_menu_to_apply" />
@@ -221,11 +246,23 @@
       <workItem from="1570930669651" duration="6598000" />
       <workItem from="1570938038132" duration="6721000" />
       <workItem from="1570977017435" duration="600000" />
+      <workItem from="1570978302722" duration="4195000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

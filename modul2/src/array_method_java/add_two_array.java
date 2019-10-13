@@ -1,9 +1,5 @@
 package array_method_java;
-
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Scanner;
-
 public class add_two_array {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -11,12 +7,12 @@ public class add_two_array {
         System.out.println("Nhap do dai mang 1:");
         number1 = input.nextInt();
         int[] array1 = new int[number1];
-        System.out.print(" Mang 1 la");
+        System.out.print(" Mang 1 la ");
         for (int i = 0; i < number1; i++) {
             array1[i] = 1 + (int) (Math.random() * 100);
         }
         for (int i = 0; i < array1.length; i++) {
-            System.out.println(array1[i] + "\t");
+            System.out.print(array1[i]+ " ");
         }
         int number2;
         System.out.print("Nhap do dai mang 2:");
@@ -25,9 +21,9 @@ public class add_two_array {
         for (int i = 0; i < number1; i++) {
             array2[i] = 1 + (int) (Math.random() * 100);
         }
-        System.out.println(" Mang 2 la");
+        System.out.print (" Mang 2 la ");
         for (int i = 0; i < array2.length; i++) {
-            System.out.println(array2[i]);
+            System.out.print(array2[i] + " ");
         }
         int number3;
         number3 = number1 + number2;
@@ -40,9 +36,9 @@ public class add_two_array {
         }
         System.out.println("mang3 la:");
         for (int i = 0; i < array3.length ; i++) {
-            System.out.println(array3[i]);
+            System.out.print(array3[i] +" ");
         }
-        System.out.println("ss" );
+        System.out.println("Do dai mang 3 la" );
         System.out.println(number3);
     }
 
