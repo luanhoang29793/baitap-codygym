@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="68246955-8d41-490d-bbd9-a77129bcea45" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1S2xDqZ1Uw4bjvfUUbfAbyINm0J" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.insert_element_to_give_array">
+    <configuration name="add_two_array" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.add_two_array" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="apply_count_studens_pass" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.apply_count_studens_pass" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="calculator_money_lending" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.calculate_money_lending" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="convert_temperature" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.convert_temperature" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="delete_element_array" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.delete_element_of_array" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="design_menu_to_apply" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.design_menut_to_apply" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="display_" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.display_20_first" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="display_Greeting" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.display_Greeting" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="display_Prime_letter_100" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.display_Prime_letter_100" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="display_convert_money" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.display_convert_money" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="display_shape" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.display_shape" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="find_max_two_array" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.find_max_two_array" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="find_min_of_array_method" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.find_min_of_array_user_method" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="find_the_value_of_array" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.find_the_value_of_array" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="insert_element_to_give_array" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.insert_elment_of_array" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="max_value_array" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.max_value_array" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="person" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="test.test1" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="reverse_element_of_array" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="array_method_java.reverse_element_of_array" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="search_greatest_common_factor" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.search_greatest_common_factor" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_leap_Year" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.test_leap_Year" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.display_Prime_letter_100" />
+      <item itemvalue="Application.convert_temperature" />
+      <item itemvalue="Application.find_the_value_of_array" />
+      <item itemvalue="Application.find_max_two_array" />
+      <item itemvalue="Application.add_two_array" />
+      <item itemvalue="Application.delete_element_array" />
+      <item itemvalue="Application.apply_count_studens_pass" />
+      <item itemvalue="Application.max_value_array" />
+      <item itemvalue="Application.reverse_element_of_array" />
+      <item itemvalue="Application.find_min_of_array_method" />
+      <item itemvalue="Application.insert_element_to_give_array" />
+      <item itemvalue="Application.display_" />
+      <item itemvalue="Application.display_shape" />
+      <item itemvalue="Application.display_convert_money" />
+      <item itemvalue="Application.design_menu_to_apply" />
+      <item itemvalue="Application.search_greatest_common_factor" />
+      <item itemvalue="Application.calculator_money_lending" />
+      <item itemvalue="Application.test_leap_Year" />
+      <item itemvalue="Application.display_Greeting" />
+      <item itemvalue="Application.person" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68246955-8d41-490d-bbd9-a77129bcea45" name="Default Changelist" comment="" />
+      <created>1570775374876</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570775374876</updated>
+      <workItem from="1570775376732" duration="12537000" />
+      <workItem from="1570800227626" duration="3682000" />
+      <workItem from="1570840881786" duration="12318000" />
+      <workItem from="1570871224599" duration="21323000" />
+      <workItem from="1570930669651" duration="6598000" />
+      <workItem from="1570938038132" duration="6721000" />
+      <workItem from="1570977017435" duration="600000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/languageJava/test_Prime.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/module2$display_20_first.ic" NAME="display_20_first Coverage Results" MODIFIED="1570872108233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/module2$convert_temperature.ic" NAME="convert_temperature Coverage Results" MODIFIED="1570851289923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
