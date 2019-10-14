@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class add_two_array {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int number1;
+        int number1 ;
         System.out.println("Nhap do dai mang 1:");
         number1 = input.nextInt();
         int[] array1 = new int[number1];

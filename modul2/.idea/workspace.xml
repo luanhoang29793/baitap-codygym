@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68246955-8d41-490d-bbd9-a77129bcea45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/array_method_java/count_appear_char_of_array.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/array_method_java/function.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/array_method_java/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/languageJava/use_opetator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/modul2/META-INF/modul2.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/modul2/array_method_java/add_two_array.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/modul2/array_method_java/add_two_array.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/modul2/array_method_java/insert_elment_of_array.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/modul2/array_method_java/insert_elment_of_array.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/array_method_java/add_two_array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/array_method_java/add_two_array.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.count_appear_char_of_aray">
+  <component name="RunManager" selected="Application.use_operator">
     <configuration name="add_two_array" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="array_method_java.add_two_array" />
       <module name="modul2" />
@@ -205,7 +199,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="use_operator" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="languageJava.use_opetator" />
+      <module name="modul2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.use_operator" />
       <item itemvalue="Application.display_Prime_letter_100" />
       <item itemvalue="Application.convert_temperature" />
       <item itemvalue="Application.find_the_value_of_array" />
@@ -246,7 +248,8 @@
       <workItem from="1570930669651" duration="6598000" />
       <workItem from="1570938038132" duration="6721000" />
       <workItem from="1570977017435" duration="600000" />
-      <workItem from="1570978302722" duration="4195000" />
+      <workItem from="1570978302722" duration="4329000" />
+      <workItem from="1571032817256" duration="1231000" />
     </task>
     <servers />
   </component>
@@ -258,7 +261,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
