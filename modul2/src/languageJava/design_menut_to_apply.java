@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class design_menut_to_apply {
     public static void main(String[] args) {
         int choice;
+        choice= -1;
         Scanner input = new Scanner(System.in);
 
             System.out.println(" Menu ");
@@ -42,7 +43,7 @@ public class design_menut_to_apply {
                     System.out.println("******");
                     break;
                 case 0:
-                    System.exit(0);
+
                 default:
                     System.out.println("No choice!");
             }

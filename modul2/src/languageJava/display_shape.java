@@ -2,6 +2,8 @@ package languageJava;
 
 import java.util.Scanner;
 
+import static java.lang.System.console;
+
 public class display_shape {
     public static void main(String[] args) {
         int choice;
@@ -42,10 +44,12 @@ public class display_shape {
                             System.out.print("*" );
                         }
                     }
+
                     break;
                 case 0:
 
-                   System.exit(0);
+                    System.exit(0);
+
                 default:
                     System.out.println("No choice!");
 
@@ -55,6 +59,7 @@ public class display_shape {
             choice = input.nextInt();
 
         }
+
     }
 
 }

@@ -29,7 +29,7 @@ public class insert_elment_of_array {
         insertnumber = input.nextInt();
         System.out.print("\n" + "nhap vi tri can chen " + insertnumber + " vao mang"+"\n ");
         index = input.nextInt();
-        if ((index < 0) | (index >= myArray.length - 1))
+        if ((index < 0) || (index > myArray.length ))
         {
             System.out.print("Khong chen duoc " + insertnumber + " vao mang" + "\n");
             System.exit(0);
