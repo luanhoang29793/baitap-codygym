@@ -14,7 +14,9 @@ public class QuadraticEquation {
         Acount qua = new Acount(a, b, c);
         System.out.println(qua.getDiscriminant());
         if (qua.getDiscriminant() > 0) {
-            System.out.println(" phuo trinh hai ngiem");
+            System.out.println(" phuong trinh hai ngiem:");
+            System.out.println(" Nghiem mot la :" + qua.getRoot1() );
+            System.out.println(" Nghiem hai la: " + qua.getRoot2());
         } else if (qua.getDiscriminant() == 0) {
             System.out.println("pt mot ngiem");
         } else {
