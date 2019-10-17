@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68246955-8d41-490d-bbd9-a77129bcea45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/class_and_method_of_ja/Fan/Fan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class_and_method_of_ja/Stop_watch/Stop_Watch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/class_and_method_of_ja/Stop_watch/class_StopWatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bai_tap/adam_eva_eat_apple/human.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bai_tap/adam_eva_eat_apple/main2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bai_tap/dep_pin/SwitchButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bai_tap/ve_tinhdien3hinh/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bai_tap/ve_tinhdien3hinh/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bai_tap/ve_tinhdien3hinh/Square.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bai_tap/ve_tinhdien3hinh/main1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bai_tap/ve_tinhdien3hinh/shap1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/modul2/class_and_method_of_ja/QuadraticEquation/Acount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/modul2/class_and_method_of_ja/QuadraticEquation/Acount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/modul2/class_and_method_of_ja/QuadraticEquation/QuadraticEquation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/modul2/class_and_method_of_ja/QuadraticEquation/QuadraticEquation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/class_and_method_of_ja/QuadraticEquation/Acount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/class_and_method_of_ja/QuadraticEquation/Acount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/class_and_method_of_ja/QuadraticEquation/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/class_and_method_of_ja/QuadraticEquation/QuadraticEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/modul2/class_and_method_of_ja/Fan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/modul2/ke_thua/bbh/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/modul2/ke_thua/bbh/Shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/modul2/ke_thua/bbh/object_shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ke_thua/bbh/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ke_thua/bbh/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ke_thua/bbh/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ke_thua/bbh/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ke_thua/bbh/object_shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ke_thua/bbh/object_shape.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +69,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Fan">
+  <component name="RunManager" selected="Application.main2">
     <configuration name="Faculty" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ke_thua.bbh.test2.Faculty" />
       <module name="modul2" />
@@ -272,6 +280,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="main1" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bai_tap.ve_tinhdien3hinh.main1" />
+      <module name="modul2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bai_tap.ve_tinhdien3hinh.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main2" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bai_tap.adam_eva_eat_apple.main2" />
+      <module name="modul2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bai_tap.adam_eva_eat_apple.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="max_value_array" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="array_method_java.max_value_array" />
       <module name="modul2" />
@@ -334,6 +368,8 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.main1" />
+      <item itemvalue="Application.main2" />
       <item itemvalue="Application.Fan" />
       <item itemvalue="Application.arrray_two_diagonal_line" />
       <item itemvalue="Application.Faculty" />
@@ -400,6 +436,11 @@
       <workItem from="1571144316052" duration="599000" />
       <workItem from="1571205674972" duration="6531000" />
       <workItem from="1571229387794" duration="5741000" />
+      <workItem from="1571244149260" duration="7000" />
+      <workItem from="1571292624257" duration="5297000" />
+      <workItem from="1571299680389" duration="1426000" />
+      <workItem from="1571315607335" duration="1445000" />
+      <workItem from="1571317269334" duration="8021000" />
     </task>
     <servers />
   </component>
@@ -426,6 +467,14 @@
           <url>file://$PROJECT_DIR$/src/languageJava/test_Prime.java</url>
           <line>10</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="NONE" type="java-method">
+          <url>file://$PROJECT_DIR$/src/bai_tap/ve_tinhdien3hinh/main1.java</url>
+          <line>5</line>
+          <properties class="bai_tap.main1" method="main">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
