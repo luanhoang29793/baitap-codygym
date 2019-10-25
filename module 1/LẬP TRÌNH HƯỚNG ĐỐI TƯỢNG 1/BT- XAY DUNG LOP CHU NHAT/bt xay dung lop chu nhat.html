@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Xây dựng lớp chữ nhật</title>
+</head>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<body>
+   <script>
+    let Rectangle = function (length, width){
+    this.length = length;
+    this.width = width;
+    
+        this.area =function(){
+        document.write('dien tich hinh chu nhat co chieu dai: ' + this.length + ' chieu rong '+ 
+                                        this.width + 'la: '+ this.length*this.width +"<br>");;
+        }
+        this.perimeter =function(){
+        document.write('chu vi hinh chu nhat co chieu dai: ' + this.length + ' chieu rong '+ 
+                                        this.width + 'la: ' + (this.length+this.width)*2);
+        }
+        this.DrawRectangle =function(){
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0,0,this.length,this.width);
+        }
+    }
+    function show(a){
+        // document.write("<br>");
+        // document.write('dien tich hinh chu nhat co chieu dai: ' + this.length + ' chieu rong '+ 
+        //                                 this.width + 'la: '+ this.area() +"<br>");
+        // document.write('chu vi hinh chu nhat co chieu dai: ' + this.length + ' chieu rong '+ 
+        //
+        //                                  this.width + 'la: ' + this.perimeter());
+        // a.DrawRectangle();
+        a.area();
+        a.perimeter();
+        a.DrawRectangle();
+    }
+    let a = new Rectangle(200,100);
+    show(a);
+    </script> 
+</body>
+</html>

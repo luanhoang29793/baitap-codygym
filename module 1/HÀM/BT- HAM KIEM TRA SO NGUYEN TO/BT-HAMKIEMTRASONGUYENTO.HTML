@@ -9,25 +9,16 @@
 <body>
    <script>
        function findPrime(n) {          
-           if (n<2){
-               return false;
-           } else if (n===2){
-               return true;
-           } else if ( n%2==0){
-               return false;
-           } else
-            for (let i = 3 ; i<(n-1) ; i+=2){
-               if (n%i===0){
-               return false;
-               }
-                
-            }
-            return true;
-        }   
-       
+         
+         for (let i =2;i<n;i++){
+             if (n%i ===0)
+             return false;
+         }
+         return true;
+       }
        function showPrime(n) {
            let arr =[];
-        for (let i=0;i<=n;i++){
+        for (let i=2;i<=n;i++){
             if (findPrime(i)){
                 arr.push(i);
             }
@@ -36,7 +27,18 @@
         document.write (arr);
        }
        showPrime(1000);
+    //    function showarr (n) {
+    //    let arr =[];
+    //    for (let i = 0; i<n ; i++) {
+    //        arr[i] = parseInt(prompt('nhập: '));
+    //     //    arr.push(arr[i]);
+    //    }
+    //    return (arr);
+    //    }
+    //    document.write(showarr(3));
+    
    </script> 
+
 
 </body>
 </html>

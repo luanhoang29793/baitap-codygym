@@ -17,7 +17,7 @@
 		let year = document.getElementById("year").value;
 		let result;
 		if( year % 4 == 0){
-			if (year % 100 !=0 ) {
+			if (year % 100 ==0 ) {
 				if (year % 400 == 0) {
 					result = "NĂM NHUẬN";
 				}
@@ -26,13 +26,13 @@
 				}
 			}
 			else {
-				result = ("NĂM NHUẬN");
+				result = ("NĂM KHÔNG NHUẬN");
 			}
 		}
 		else{
-			result =("NĂM KHÔNG NHUẬN");
+			result =("NĂM NHUẬN");
 		}
-		if (result == ("NĂM NHUẬN")) {
+		if (result == ("NĂM KHÔNG NHUẬN")) {
 			document.getElementById("result").innerHTML = year + " is leap year";
 		}
 		else{

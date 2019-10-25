@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="p5.min.js"></script>
+    <script src="p5.min.js"></script> 
 
     <title>Document</title>
 </head>
@@ -28,6 +28,7 @@
         color: red;
     }
 </style>
+<!-- css -->
 <div class="start">
     <label for="">Level:</label>
     <select id="level">
@@ -43,13 +44,13 @@
 <div id="gameover" class="over">
 </div>
 <br>
-
+ 
     <script>
         var ship; // khởi tạo đối tượng phi thuyền
         var drops = []; // tạo mảng cho đạn
         var chickens = []; // tạo mảng cho gà
         var createChicken; // khởi tạo đối tượng gà
-        var level = { // mức điểm cho mỗi level
+        var level = { // mức thời gian tạo gà
             easy: 1500,
             medium: 900,
             hard: 400,
@@ -60,8 +61,9 @@
         }
 
         function setup() {
-            createCanvas(800, 400); // tạo khung trò chơi bằng canvas
-            ship = new Ship(); //tạo mảng cho phi thuyền
+            createCanvas(800, 400); 
+        
+            ship = new Ship(); 
             document.getElementById("start").addEventListener("click", () => {
                 chickens = [];
                 let l = document.getElementById('level').value;
@@ -69,7 +71,7 @@
 
                 createChicken = setInterval(function () {
                     chickens.push(new Chicken(Math.floor(Math.random() * 600), Math.floor(Math.random() * 200)));
-                }, level[l]); lặp //tạo gà sau một thời gian, vị trí bất kì
+                }, level[l]); //tạo gà sau một thời gian, vị trí bất kì
             });
             document.addEventListener('click', function (e) {
                 if (document.activeElement.toString() == '[object HTMLButtonElement]') {
@@ -174,16 +176,13 @@
             }
 
             this.move = function () {
-                if (this.x > width){
+               
                 this.x += this.xdir * 5;}
-                if (this.x > 0){
-                    this.x = this.xdir *5
-                }
-                console.log (width);
+                
                 
                 
 
-            }
+            
         }
 
         function Drop(x, y) {
@@ -192,7 +191,7 @@
             this.r = 8;
             this.rotate = -1.5559;
             this.speed = 10;
-            this.toDel = false;
+            //this.toDel = false;
      // tạo đối tượng đạn
             this.show = function () {
                 push()
@@ -211,7 +210,7 @@
             this.move = function () {
                 this.y = this.y - this.speed;
             }
-
+             // cho đạn di chuyển
             this.hits = function (chicken) {
                 var d = dist(this.x, this.y, chicken.x, chicken.y);
                 if (d < this.r + chicken.r + 30) {
@@ -222,10 +221,10 @@
             }
 
             this.remove = function () {
-                this.toDel = true;
+                //this.toDel = true;
             }
         }
-        // cho đạn di chuyển
+       // khi đạn đụng gà  xóa đạn
         function Chicken(x, y) {
             this.blood = 3;
             this.x = x;
@@ -259,10 +258,11 @@
                 this.xdir *= -1;
                 this.y += this.r;
             }
-            // trừ máu
+            // đối tượng di chuyển xuống
             this.subBlood = function () {
                 this.blood -= 1;
             }
+            // trừ máu
         }
     </script>
 
